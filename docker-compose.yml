@@ -1,0 +1,21 @@
+services:
+  server:
+    image: mcr.microsoft.com/devcontainers/java:25-trixie
+    volumes:
+      - ./:/workspaces/spring-config-example
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: sleep infinity
+    working_dir: /workspaces/spring-config-demo
+    ports:
+      - "8080:8080"
+
+  database:
+    image: postgres:18
+    volumes:
+      - ./database/schema:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: demouser
+      POSTGRES_PASSWORD: demopassword
+      POSTGRES_DB: demodb

@@ -1,0 +1,33 @@
+// For format details, see https://aka.ms/devcontainer.json
+{
+	"name": "spring-config-demo",
+	"dockerComposeFile": ["../docker-compose.yml"],
+	"service": "server",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"runServices": ["database"],
+
+	"remoteEnv": { "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}" },
+
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "none",
+			"installMaven": "false",
+			"installGradle": "true"
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+
+	"forwardPorts": [8080, 5432],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"vmware.vscode-boot-dev-pack"
+			]
+		}
+	}
+}
