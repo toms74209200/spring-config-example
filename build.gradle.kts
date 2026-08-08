@@ -19,12 +19,10 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
-	runtimeOnly("org.postgresql:postgresql")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-	testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
-	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

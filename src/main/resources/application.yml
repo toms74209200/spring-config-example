@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: spring-config-example
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "default | record"
+
+greeter:
+  message: Hello from the record
+
+---
+spring:
+  config:
+    activate:
+      on-profile: field
+
+greeter:
+  message: Hello from field injection
